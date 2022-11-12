@@ -3,7 +3,8 @@ array.
 
 
 
-2 Introduction to pointers. Call by Value and Call by reference YES - -
+2 Introduction to pointers. Call by Value and Call by reference 
+
 3 Implement a program for stack that performs following operations
 using array.
 a. PUSH
@@ -56,9 +57,6 @@ d. Delete a node after specified position.
 
 
 
-DRS. KIRAN & PALLAVI PATEL GLOBAL UNIVERSITY, VADODARA (KPGU)
-
-HoD Director Dean
 9 Write a program which create binary search tree and implement
 tree traversing methods in order, preorder and post-order
 traversal.
@@ -69,5 +67,6 @@ traversal.
 a. Bubble
 b. Merge
 c. Quick
+
 11 Write a program to implement Binary search algorithm.
-12 OEP
+
