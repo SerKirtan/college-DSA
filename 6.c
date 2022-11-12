@@ -6,7 +6,7 @@ struct node
     struct node *link;
 };
 
-struct node* display(struct node* head)
+void display(struct node* head)
 {
     struct node* temp = head;
     printf("\n");
@@ -17,8 +17,19 @@ struct node* display(struct node* head)
     }    
 }
 
+struct node* addToEmpty(struct node* head , int data)
+{
+    struct node* temp = malloc(sizeof(struct node));
+    temp->link = NULL;
+    temp->data = data;
+    head = temp;
+    return head;
+}
+
 struct node* addAtEnd(struct node* head, int data)
 {
+    if(head == NULL)
+        head = addToEmpty(head , data);
     struct node *ptr,*temp;
     ptr = head;
     temp = malloc(sizeof(struct node));
@@ -39,21 +50,12 @@ struct node* addAtBegining(struct node* head , int data)
     return head;
 }
 
-struct node* addToEmpty(struct node* head , int data)
-{
-    struct node* temp = malloc(sizeof(struct node));
-    temp->link = NULL;
-    temp->data = data;
-    head = temp;
-    return head;
-}
-
 struct node* createList(struct node* head)
 {
     int n, data;
     printf("Enter number of elements you want : ");
     scanf("%d",&n);
-    if(n==0)
+    if(n<0)
         return head;
     printf("Enter the element-1 : ");
     scanf("%d", &data);
