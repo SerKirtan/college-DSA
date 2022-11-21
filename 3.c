@@ -63,7 +63,7 @@ void display()
     }
 }
 
-void performOperation(int stack[])
+void performOperation()
 {
     int ch = 0;
     while (ch != 6)
@@ -97,5 +97,5 @@ void performOperation(int stack[])
 
 int main() 
 {
-    performOperation(stack);
+    performOperation();
 }
