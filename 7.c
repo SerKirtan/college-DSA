@@ -86,7 +86,7 @@ struct node* deleteBefore(struct node* head , int position)
         temp = temp->next;
     }
     if(temp->next == NULL)
-        deleteLast(head);
+        head=deleteLast(head);
     else
     {
         temp->next->prev = temp->prev;
