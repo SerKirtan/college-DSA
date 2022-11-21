@@ -109,7 +109,6 @@ void infixToPostfix()
 {
     int j = 0 , i = 0;
     char symbol , next;
-    while(infix[i] != '\0')
     for( ; i < strlen(infix) ; i++)
     {
         symbol = infix[i];
