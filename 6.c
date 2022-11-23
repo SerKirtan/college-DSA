@@ -107,6 +107,38 @@ struct node* deleteSpecific(struct node* head , int position)
     return head;
 }
 
+struct node* sort(struct node* head)
+{
+    struct node* ptr = head;
+    struct node* temp = head;
+    for( ; ptr->link->link != NULL ; ptr = ptr->link)
+        for(temp = head ; temp->link != NULL ; temp = temp->link)
+            if(temp->data > temp->link->data)
+            {
+                int temp_var = temp->data;
+                temp->data = temp->link->data;
+                temp->link->data = temp_var;
+            }
+    return head;
+}
+
+struct node* insertInSort(struct node* head, int data)
+{
+    struct node* temp = malloc(sizeof(struct node));
+    temp->data = data;
+    temp->link = NULL;
+    struct node* ptr = head;
+    if(ptr->data > temp->data)
+        head = addAtBegining(head , data);
+    else{
+        while(ptr->link->data < temp->data)  
+            ptr = ptr->link ;
+        temp->link = ptr->link;
+        ptr->link = temp;
+    }
+    return head;
+}
+
 struct node* performOperations(struct node* head)
 {
     int ch = 0 , data;
@@ -132,7 +164,11 @@ struct node* performOperations(struct node* head)
             head = addAtEnd (head , data);
             printf("Added!");
             break;
-        case 4: //DOUBT [create sort function first? or provided linked list is already sorted?]
+        case 4: 
+            printf("Enter element : ");
+            scanf("%d" , &data);
+            head = sort(head);
+            head = insertInSort(head , data);
             break;
         case 5:
             head = deleteFirst(head);
