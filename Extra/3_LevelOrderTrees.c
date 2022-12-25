@@ -38,17 +38,20 @@ struct Node* pop()
     }
 }
 
-struct Node* buildTree(int nodes[])//{ 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+struct Node* buildTree(struct Node* root)//{ 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
 {
-    static int idx = -1;
-    idx++;
-    if(nodes[idx] == -1)
+    int temp;
+    printf("\nEnter element : ");
+    scanf("%d" , &temp);
+    if(temp == -1)
         return NULL;
     
     struct Node* newNode = malloc(sizeof(struct Node));
-    newNode->data = nodes[idx];
-    newNode->left = buildTree(nodes);
-    newNode->right = buildTree(nodes);
+    newNode->data = temp;
+    printf("Enter the left of %d" , temp);
+    newNode->left = buildTree(root);
+    printf("Enter the right of %d" , temp);
+    newNode->right = buildTree(root);
     return newNode;
 }
 
@@ -82,6 +85,7 @@ void levelOrder(struct Node* root)
 int main()
 {
     int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
-    struct Node* root = buildTree(nodes);
+    struct Node* root = NULL;
+    root = buildTree(root);
     levelOrder(root);
 }
