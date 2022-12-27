@@ -7,20 +7,6 @@ struct Node{
     struct Node* right;
 };
 
-struct Node* buildTree(int nodes[])//{ 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
-{
-    static int idx = -1;
-    idx++;
-    if(nodes[idx] == -1)
-        return NULL;
-    
-    struct Node* newNode = malloc(sizeof(struct Node));
-    newNode->data = nodes[idx];
-    newNode->left = buildTree(nodes);
-    newNode->right = buildTree(nodes);
-    return newNode;
-}
-
 void preorder( struct Node* root)
 {
     if(root == NULL){
@@ -54,13 +40,47 @@ void postorder( struct Node* root)
     printf(" %d", root->data);
 }
 
+struct node *newNode(int data) {
+  struct Node* temp = malloc(sizeof(struct Node));
+  temp->data = data;
+  temp->left = temp->right = NULL;
+  return temp;
+}
+
+struct Node* insert(struct Node* root , int data)
+{
+    if(root == NULL)
+        return newNode(data);
+    if(data < root->data)
+        root->left = insert(root->left , data);
+    else    
+        root->right = insert(root->right , data);
+    return root;
+}
+
+struct Node* buildBST(struct Node* root)
+{
+    int size;
+    printf("Enter how many nodes you want to enter : ");
+    scanf("%d", &size);
+    int nodes[size];
+    printf("Enter values : ");
+    for(int i = 0 ; i < size ; i++)
+    {
+        scanf("%d" , &nodes[i]);
+        root = insert( root , nodes[i] );
+    }
+    return root;
+}
+
 int main()
 {
-    int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
-    struct Node* root = buildTree(nodes);
+    struct Node* root = NULL;
+    root = buildBST(root);
+    printf("\nPreorder transversal");
     preorder(root);
-    printf("\n");
+    printf("\nInorder transversal");
     inorder(root);
-    printf("\n");
+    printf("\nPostorder transversal");
     postorder(root);
 }
