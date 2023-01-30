@@ -19,15 +19,11 @@ int partition(int array[], int low, int high)
         if (array[j] <= pivot)
         {
             i++;
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
+            swap(array[i] , array[j]);
         }
     }
     i++;
-    int temp = array[i];
     array[i] = array[high];
-    array[high] = temp;
 
     return i;
 }
