@@ -23,7 +23,7 @@ int partition(int array[], int low, int high)
         }
     }
     i++;
-    array[i] = array[high];
+    swap( array[i] , array[high] );
 
     return i;
 }
