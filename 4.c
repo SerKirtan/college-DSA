@@ -5,65 +5,6 @@ char stack[MAX] , infix[MAX] , postfix[MAX];
 //int resl[MAX];
 int top = -1;
 
-// int pop2()
-// {
-//     if( top == -1)
-//         printf("\nStack Underflow!");
-//     else
-//         return resl[top--];
-// }
-
-// void push2(int num)
-// {
-//     if(top == MAX - 1)
-//         printf("\nStack Overflow!");
-//     else
-//         resl[++top] = num;
-// }
-
-// int evaluatePostfix()
-// {
-//     int i = 0 , n1 , n2 , temp = 1;
-//     char symbol;
-//     top = -1;
-//     while(postfix[i] != '\0')
-//     {
-//         symbol = postfix[i];
-//         switch(symbol)
-//         {
-//         case '+':
-//             push2(pop2() + pop2());
-//             break;
-//         case '-':
-//             n1 = pop2();
-//             n2 = pop2();
-//             push2(n2-n1);
-//             break;
-//         case '*':
-//             push2(pop2() * pop2());
-//             break;
-//         case '/':
-//             n1 = pop2();
-//             n2 = pop2();
-//             push2(n2/n1);
-//             break;
-//         case '^':
-//             n1 = pop2();
-//             n2 = pop2();
-//             while (n1 != 0){
-//                 temp*=n2;
-//                 n1--;
-//             }
-//             push2(temp);
-//             temp = 1;
-//             break;
-//         default: push2(symbol-48);
-//         }
-//         i++;
-//     }
-//     return resl[0];
-// }
-
 int precedence(char s)
 {
     switch(s)
@@ -147,3 +88,64 @@ int main()
     printf("Postfix is %s" , postfix);
 //     printf("\nResult is %d" , evaluatePostfix());
 }
+
+
+
+// int pop2()
+// {
+//     if( top == -1)
+//         printf("\nStack Underflow!");
+//     else
+//         return resl[top--];
+// }
+
+// void push2(int num)
+// {
+//     if(top == MAX - 1)
+//         printf("\nStack Overflow!");
+//     else
+//         resl[++top] = num;
+// }
+
+// int evaluatePostfix()
+// {
+//     int i = 0 , n1 , n2 , temp = 1;
+//     char symbol;
+//     top = -1;
+//     while(postfix[i] != '\0')
+//     {
+//         symbol = postfix[i];
+//         switch(symbol)
+//         {
+//         case '+':
+//             push2(pop2() + pop2());
+//             break;
+//         case '-':
+//             n1 = pop2();
+//             n2 = pop2();
+//             push2(n2-n1);
+//             break;
+//         case '*':
+//             push2(pop2() * pop2());
+//             break;
+//         case '/':
+//             n1 = pop2();
+//             n2 = pop2();
+//             push2(n2/n1);
+//             break;
+//         case '^':
+//             n1 = pop2();
+//             n2 = pop2();
+//             while (n1 != 0){
+//                 temp*=n2;
+//                 n1--;
+//             }
+//             push2(temp);
+//             temp = 1;
+//             break;
+//         default: push2(symbol-48);
+//         }
+//         i++;
+//     }
+//     return resl[0];
+// }
